@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisualImpact Studio | Premium Photography</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #0f172a;
+            --secondary: #5b21b6;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--primary);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            z-index: 2;
+            position: relative;
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .gallery-item {
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .team-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-500">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center" style="outline: rgb(0, 0, 0) dotted 3px; outline-offset: 1px;">
+            <a href="#" class="text-3xl font-bold tracking-tight" style="color: var(--light); outline: rgb(0, 0, 0) dotted 3px; outline-offset: 1px;">VISUAL<span style="color: var(--accent);">IMPACT</span></a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-white hover:text-amber-300 transition">Home</a>
+                <a href="#services" class="text-white hover:text-amber-300 transition">Services</a>
+                <a href="#portfolio" class="text-white hover:text-amber-300 transition">Portfolio</a>
+                <a href="#about" class="text-white hover:text-amber-300 transition">About</a>
+                <a href="#contact" class="text-white hover:text-amber-300 transition">Contact</a>
+                <a href="#" class="px-6 py-2 bg-amber-500 rounded-full text-white font-medium hover:bg-amber-600 transition ml-4">Book Session</a>
+            </div>
+            <button class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section with Parallax -->
+    <section id="home" class="hero parallax" style="background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1c9d3d95-0a70-467b-8d4c-8b438e435d94.png');">
+        <div class="hero-content container mx-auto h-full flex flex-col justify-center px-4">
+            <div class="max-w-3xl animate-fade-in">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-4">YOUR STORY <span class="text-amber-300">VISUALIZED</span> WITH IMPACT</h1>
+                <p class="text-lg text-white mb-8 opacity-90">Chennai's premier photography studio specializing in weddings, portraits and commercial photography with a creative edge.</p>
+                <div class="flex space-x-4">
+                    <a href="#portfolio" class="px-8 py-3 bg-amber-500 rounded-full text-white font-medium hover:bg-amber-600 transition">View Portfolio</a>
+                    <a href="#contact" class="px-8 py-3 border-2 border-white rounded-full text-white font-medium hover:bg-white hover:text-gray-900 transition">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-gray-100 to-transparent z-10"></div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="bg-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="p-6">
+                    <h3 class="text-5xl font-bold text-purple-800 mb-2">1500+</h3>
+                    <p class="text-gray-600">Sessions Done</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-5xl font-bold text-purple-800 mb-2">300+</h3>
+                    <p class="text-gray-600">Happy Clients</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-5xl font-bold text-purple-800 mb-2">12+</h3>
+                    <p class="text-gray-600">Years Experience</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-5xl font-bold text-purple-800 mb-2">25+</h3>
+                    <p class="text-gray-600">Awards Won</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50 relative overflow-hidden">
+        <div class="absolute -left-32 -top-32 w-64 h-64 bg-purple-500 rounded-full filter blur-3xl opacity-10"></div>
+        <div class="absolute -right-32 -bottom-32 w-64 h-64 bg-amber-500 rounded-full filter blur-3xl opacity-10"></div>
+        
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <p class="text-purple-800 font-medium mb-2">OUR SERVICES</p>
+                <h2 class="text-4xl font-bold mb-4">What We Offer</h2>
+                <div class="w-20 h-1 bg-amber-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-md animate-fade-in delay-100">
+                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-camera-retro text-purple-800 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Portrait Photography</h3>
+                    <p class="text-gray-700 mb-4">Stunning professional portraits that capture personality and emotion for individuals, couples, and families.</p>
+                    <a href="#" class="text-purple-800 font-medium flex items-center hover:text-purple-600">
+                        Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-md animate-fade-in delay-200">
+                    <div class="w-16 h-16 bg-amber-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-ring text-amber-800 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Wedding Photography</h3>
+                    <p class="text-gray-700 mb-4">Beautiful storytelling through images for your special day, capturing all the emotions and details.</p>
+                    <a href="#" class="text-purple-800 font-medium flex items-center hover:text-purple-600">
+                        Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-md animate-fade-in delay-300">
+                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-building text-purple-800 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Commercial Photography</h3>
+                    <p class="text-gray-700 mb-4">High-quality product and branding photography to elevate your business and marketing materials.</p>
+                    <a href="#" class="text-purple-800 font-medium flex items-center hover:text-purple-600">
+                        Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-md animate-fade-in delay-100">
+                    <div class="w-16 h-16 bg-amber-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-tshirt text-amber-800 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Fashion Photography</h3>
+                    <p class="text-gray-700 mb-4">Striking images for fashion brands, designers, and models showcasing style and creativity.</p>
+                    <a href="#" class="text-purple-800 font-medium flex items-center hover:text-purple-600">
+                        Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-md animate-fade-in delay-200">
+                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-landmark text-purple-800 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Architecture Photography</h3>
+                    <p class="text-gray-700 mb-4">Capturing buildings, structures, and spaces with artistic perspective and technical precision.</p>
+                    <a href="#" class="text-purple-800 font-medium flex items-center hover:text-purple-600">
+                        Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-md animate-fade-in delay-300">
+                    <div class="w-16 h-16 bg-amber-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-video text-amber-800 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Videography</h3>
+                    <p class="text-gray-700 mb-4">Professional video production services for commercials, events, and social media content.</p>
+                    <a href="#" class="text-purple-800 font-medium flex items-center hover:text-purple-600">
+                        Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Parallax Divider -->
+    <section class="parallax py-32 relative" style="background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f6b55211-f18b-4589-bde1-db7cfdd54f5f.png');">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <div class="max-w-3xl mx-auto glass-card p-8 md:p-12 inline-block">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Bring Your Vision to Life</h2>
+                <p class="text-white mb-6 text-lg">Let us capture your story through our lens with exceptional quality and artistic vision.</p>
+                <a href="#contact" class="px-8 py-3 bg-amber-500 rounded-full text-white font-medium hover:bg-amber-600 transition inline-block">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <p class="text-purple-800 font-medium mb-2">OUR WORK</p>
+                <h2 class="text-4xl font-bold mb-4">Featured Projects</h2>
+                <div class="w-20 h-1 bg-amber-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Portfolio Item 1 -->
+                <a href="#" class="gallery-item group relative rounded-xl overflow-hidden h-80">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/af82bd53-7f1e-4929-bbc4-f29d35c34b7c.png" alt="Fashion model in avant-garde clothing posing in an urban alley with dramatic lighting" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-6 transition duration-300 opacity-0 group-hover:opacity-100">
+                        <h3 class="text-white text-xl font-bold mb-2">Urban Elegance</h3>
+                        <p class="text-white text-sm">Fashion Photography</p>
+                    </div>
+                </a>
+                
+                <!-- Portfolio Item 2 -->
+                <a href="#" class="gallery-item group relative rounded-xl overflow-hidden h-80">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/24d81a1e-9b19-405b-97dd-061fd1de7ca2.png" alt="Couple sharing a romantic moment during golden hour on a beach wedding with soft sunlight" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-6 transition duration-300 opacity-0 group-hover:opacity-100">
+                        <h3 class="text-white text-xl font-bold mb-2">Golden Promise</h3>
+                        <p class="text-white text-sm">Wedding Photography</p>
+                    </div>
+                </a>
+                
+                <!-- Portfolio Item 3 -->
+                <a href="#" class="gallery-item group relative rounded-xl overflow-hidden h-80">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bfbb5e36-65f3-46fe-960a-a782e7569761.png" alt="Minimalist corporate headshot of a business professional in a modern office setting with neutral background" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-6 transition duration-300 opacity-0 group-hover:opacity-100">
+                        <h3 class="text-white text-xl font-bold mb-2">Executive Presence</h3>
+                        <p class="text-white text-sm">Corporate Portraits</p>
+                    </div>
+                </a>
+                
+                <!-- Portfolio Item 4 -->
+                <a href="#" class="gallery-item group relative rounded-xl overflow-hidden h-80">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/71713b13-6216-412d-bfc4-f04fba92e589.png" alt="Contemporary architectural shot of a skyscraper with glass facade reflecting sunset colors" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-6 transition duration-300 opacity-0 group-hover:opacity-100">
+                        <h3 class="text-white text-xl font-bold mb-2">Urban Reflection</h3>
+                        <p class="text-white text-sm">Architecture</p>
+                    </div>
+                </a>
+                
+                <!-- Portfolio Item 5 -->
+                <a href="#" class="gallery-item group relative rounded-xl overflow-hidden h-80">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1fb5e103-c37f-4b9c-b87d-816fa267a64d.png" alt="Product shot of luxury watch on marble surface with selective focus and dramatic lighting" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-6 transition duration-300 opacity-0 group-hover:opacity-100">
+                        <h3 class="text-white text-xl font-bold mb-2">Timeless Precision</h3>
+                        <p class="text-white text-sm">Product Photography</p>
+                    </div>
+                </a>
+                
+                <!-- Portfolio Item 6 -->
+                <a href="#" class="gallery-item group relative rounded-xl overflow-hidden h-80">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b3685e50-c045-4db9-8267-4c67f427d065.png" alt="Candid family portrait in a golden field, parents holding child with genuine laughter and sunlight backlight" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-6 transition duration-300 opacity-0 group-hover:opacity-100">
+                        <h3 class="text-white text-xl font-bold mb-2">Fields of Joy</h3>
+                        <p class="text-white text-sm">Family Portraits</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#" class="px-8 py-3 border-2 border-purple-800 rounded-full text-purple-800 font-medium hover:bg-purple-800 hover:text-white transition inline-flex items-center">
+                    View Full Portfolio <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in">
+                    <p class="text-purple-800 font-medium mb-2">OUR STORY</p>
+                    <h2 class="text-4xl font-bold mb-6">About VisualImpact Studio</h2>
+                    <div class="w-20 h-1 bg-amber-500 mb-8"></div>
+                    <p class="text-gray-700 mb-6">Founded in 2010, VirsualImpact Studio has established itself as a premier photography service provider, blending technical expertise with artistic vision to create images that resonate and inspire.</p>
+                    <p class="text-gray-700 mb-8">Our team of passionate photographers and creatives work collaboratively to ensure every project captures the essence of your vision while exceeding industry standards for quality and creativity.</p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-gray-800">Professional Crew</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-gray-800">Premium Equipment</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-gray-800">Creative Direction</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-gray-800">Flexible Packages</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="px-8 py-3 bg-purple-800 rounded-full text-white font-medium hover:bg-purple-900 transition inline-block">Learn More</a>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="animate-fade-in delay-100">
+                        <div class="h-64 rounded-xl overflow-hidden mb-4">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/15e57f28-3d63-47a8-a136-fab72cc5b944.png" alt="Photographer adjusting professional camera setup in a well-lit studio environment" class="w-full h-full object-cover">
+                        </div>
+                        <div class="h-48 rounded-xl overflow-hidden">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6536ad5a-1077-45a9-a114-e5204d59b2ba.png" alt="Professional photography studio with lighting equipment and seamless backdrops" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="animate-fade-in delay-200">
+                        <div class="h-48 rounded-xl overflow-hidden mb-4">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/89c872c4-c722-4938-8969-575694bfc1aa.png" alt="Team of professional photographers reviewing images on large computer monitor in post-production" class="w-full h-full object-cover">
+                        </div>
+                        <div class="h-64 rounded-xl overflow-hidden">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fbedac2d-8d5e-4a24-9204-ca5ffa5b17f3.png" alt="Photography equipment including lenses, cameras, and lighting modifiers neatly arranged" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <p class="text-purple-800 font-medium mb-2">MEET US</p>
+                <h2 class="text-4xl font-bold mb-4">Our Creative Team</h2>
+                <div class="w-20 h-1 bg-amber-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="team-card text-center animate-fade-in delay-100">
+                    <div class="w-full h-80 rounded-xl overflow-hidden mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/55eb9045-c060-489c-9fc9-90aa7c3af45f.png" alt="Portrait of lead photographer Sarah Chen smiling professionally with studio lighting" class="w-full h-full object-cover transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">Trisha</h3>
+                    <p class="text-purple-800 font-medium mb-3">Lead Photographer</p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-800 hover:bg-purple-800 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-800 hover:bg-purple-800 hover:text-white transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-card text-center animate-fade-in delay-200">
+                    <div class="w-full h-80 rounded-xl overflow-hidden mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/102fd727-96e7-484b-9a6f-2a7540aa6684.png" alt="Portrait of senior videographer Michael Rodriguez checking camera settings" class="w-full h-full object-cover transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">Samuel</h3>
+                    <p class="text-purple-800 font-medium mb-3">Senior Videographer</p>
+                    <p class="text-purple-800 font-medium mb-3">Senior Photographer</p>
+                    <p class="text-purple-800 font-medium mb-3">Creative Director</p>
+
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-800 hover:bg-purple-800 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-800 hover:bg-purple-800 hover:text-white transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-card text-center animate-fade-in delay-300">
+                    <div class="w-full h-80 rounded-xl overflow-hidden mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2853f0b3-41a6-4e10-907c-e29e10b6baba.png" alt="Portrait of creative director Emma Johnson holding a clipboard during a photoshoot" class="w-full h-full object-cover transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">Ell</h3>
+                    <p class="text-purple-800 font-medium mb-3">Creative Director</p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-800 hover:bg-purple-800 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-800 hover:bg-purple-800 hover:text-white transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="team-card text-center animate-fade-in delay-400">
+                    <div class="w-full h-80 rounded-xl overflow-hidden mb-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d065ba3e-3831-4030-9c6c-31b4826c7151.png" alt="Portrait of digital artist David Kim working on a high-resolution image on a computer" class="w-full h-full object-cover transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">Rudhran</h3>
+                    <p class="text-purple-800 font-medium mb-3">Digital Artist</p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-800 hover:bg-purple-800 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-800 hover:bg-purple-800 hover:text-white transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <p class="text-purple-800 font-medium mb-2">CLIENT FEEDBACK</p>
+                <h2 class="text-4xl font-bold mb-4">What Our Clients Say</h2>
+                <div class="w-20 h-1 bg-amber-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md animate-fade-in delay-100">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-400 text-2xl mr-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"VirsualImpact captured our wedding day with such emotion and beauty. Every time we look at the photos, we're transported back to that magical moment. Their attention to detail and creative eye made all the difference."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0c2c5586-a365-4e3a-ba9c-e6d711dc943f.png" alt="Portrait of happy bride Jennifer Wilson smiling" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-1">Jennifer Wilson</h4>
+                            <p class="text-sm text-gray-600">Wedding Client</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md animate-fade-in delay-200">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-400 text-2xl mr-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"The team delivered exceptional branding photos for my business. They understood exactly what we needed to elevate our marketing and the results have significantly increased our engagement across all platforms."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bc357122-b9fa-4893-ab5e-99124d657c3d.png" alt="Portrait of business owner Robert Chen in professional attire" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-1">Robert Chen</h4>
+                            <p class="text-sm text-gray-600">Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md animate-fade-in delay-300">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-400 text-2xl mr-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"I'm thrilled with our family portraits! The photographers made everyone feel comfortable, especially the kids, and the images are natural, joyful and exactly what we wanted to remember this stage of our lives."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/16c3518e-e872-4d14-9679-720eb2acbd8d.png" alt="Portrait of happy mother Lisa Martinez with her family in the background" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-1">Lisa Martinez</h4>
+                            <p class="text-sm text-gray-600">Family Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="animate-fade-in">
+                    <p class="text-purple-800 font-medium mb-2">GET IN TOUCH</p>
+                    <h2 class="text-4xl font-bold mb-6">Contact Us</h2>
+                    <div class="w-20 h-1 bg-amber-500 mb-8"></div>
+                    <p class="text-gray-700 mb-8">Ready to bring your vision to life? Reach out to discuss your project or schedule a consultation with our team.</p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex">
+                            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-800 mr-4 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Our Studio</h4>
+                                <p class="text-gray-700">45 Photography Street, Nungambakkam, Chennai 600034</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-800 mr-4 flex-shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email Us</h4>
+                                <p class="text-gray-700">info@virsualimpact.com</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-800 mr-4 flex-shrink-0">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Call Us</h4>
+                                <p class="text-gray-700">+91 98401 23456</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-purple-800 flex items-center justify-center text-white hover:bg-purple-900 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-purple-800 flex items-center justify-center text-white hover:bg-purple-900 transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-purple-800 flex items-center justify-center text-white hover:bg-purple-900 transition">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-purple-800 flex items-center justify-center text-white hover:bg-purple-900 transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://wa.me/919840123456" class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white hover:bg-green-600 transition">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate-fade-in delay-100">
+                    <div class="bg-gray-50 p-8 md:p-10 rounded-xl shadow-sm">
+                        <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
+                        <form>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-800 focus:border-transparent" placeholder="Your name">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-800 focus:border-transparent" placeholder="Your email">
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-800 focus:border-transparent" placeholder="Subject">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-800 focus:border-transparent" placeholder="Your message"></textarea>
+                            </div>
+                            <button type="submit" class="w-full px-6 py-3 bg-purple-800 rounded-full text-white font-medium hover:bg-purple-900 transition">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Parallax Footer -->
+    <section class="parallax py-32 relative" style="background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5a099c44-2755-4960-9201-5bcad661754c.png');">
+        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Create Something Amazing?</h2>
+            <p class="text-xl text-white mb-8 max-w-2xl mx-auto">Let's discuss your project and how we can bring your vision to life with stunning photography.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#contact" class="px-8 py-3 bg-amber-500 rounded-full text-white font-medium hover:bg-amber-600 transition flex-shrink-0">Contact Us</a>
+                <a href="tel:+919876543210" class="px-8 py-3 border-2 border-white rounded-full text-white font-medium hover:bg-white hover:text-gray-900 transition flex-shrink-0">Call Now</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white text-2xl font-bold mb-4">VISUAL<span class="text-amber-300">IMPACT</span></h3>
+                    <p class="mb-4">Professional photography and videography services to bring your vision to life with impact.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-amber-300 transition">Home</a></li>
+                        <li><a href="#services" class="hover:text-amber-300 transition">Services</a></li>
+                        <li><a href="#portfolio" class="hover:text-amber-300 transition">Portfolio</a></li>
+                        <li><a href="#about" class="hover:text-amber-300 transition">About Us</a></li>
+                        <li><a href="#contact" class="hover:text-amber-300 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-amber-300 transition">Portrait Photography</a></li>
+                        <li><a href="#" class="hover:text-amber-300 transition">Wedding Photography</a></li>
+                        <li><a href="#" class="hover:text-amber-300 transition">Commercial Photography</a></li>
+                        <li><a href="#" class="hover:text-amber-300 transition">Fashion Photography</a></li>
+                        <li><a href="#" class="hover:text-amber-300 transition">Videography</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-4">Newsletter</h4>
+                    <p class="mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-amber-500 w-full">
+                        <button type="submit" class="px-4 py-2 bg-amber-500 text-white rounded-r-lg hover:bg-amber-600 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p>© 2025 VisualImpact Studio. All Rights Reserved.|Website Design & Developed by FKode Solution</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-gray-900', 'shadow-lg');
+                nav.classList.remove('bg-transparent');
+            } else {
+                nav.classList.add('bg-transparent');
+                nav.classList.remove('bg-gray-900', 'shadow-lg');
+            }
+        });
+        
+        // Mobile menu toggle would go here
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.animate-fade-in');
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if(position < windowHeight - 100) {
+                    element.style.opacity = "1";
+                    element.style.transform = "translateY(0)";
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
+
